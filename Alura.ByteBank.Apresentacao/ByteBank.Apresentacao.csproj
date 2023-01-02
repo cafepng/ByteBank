@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Alura.ByteBank.Aplicacao\ByteBank.Aplicacao.csproj" />
+    <ProjectReference Include="..\Alura.ByteBank.Dados\ByteBank.Dados.csproj" />
+    <ProjectReference Include="..\Alura.ByteBank.Domain\ByteBank.Dominio.csproj" />
+  </ItemGroup>
+
+</Project>
