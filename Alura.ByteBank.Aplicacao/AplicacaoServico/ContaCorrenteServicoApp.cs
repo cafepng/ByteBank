@@ -31,31 +31,31 @@ namespace Alura.ByteBank.Aplicacao.AplicacaoServico
             _servico.Dispose();
             GC.SuppressFinalize(this);
         }
-        public bool Adicionar(ContaCorrenteDTO conta)
+        public bool Add(ContaCorrenteDTO conta)
         {            
            return _servico.Adicionar(_mapper.Map<ContaCorrenteDTO, ContaCorrente>(conta));
         }
 
-        public bool Atualizar(int id, ContaCorrenteDTO conta)
+        public bool Update(int id, ContaCorrenteDTO conta)
         {
             return _servico.Atualizar(id, _mapper.Map<ContaCorrenteDTO, ContaCorrente>(conta));
         }
 
-        public bool Excluir(int id)
+        public bool Remove(int id)
         {
             return _servico.Excluir(id);
         }
 
-        public ContaCorrenteDTO ObterPorId(int id)
+        public ContaCorrenteDTO GetById(int id)
         {
             return _mapper.Map<ContaCorrente, ContaCorrenteDTO>(_servico.ObterPorId(id));
         }
 
-        public ContaCorrenteDTO ObterPorGuid(Guid guid)
+        public ContaCorrenteDTO GetByGuid(Guid guid)
         {
             return _mapper.Map<ContaCorrente, ContaCorrenteDTO>(_servico.ObterPorGuid(guid));
         }
-        public List<ContaCorrenteDTO> ObterTodos()
+        public List<ContaCorrenteDTO> GetAll()
         {
             var contas = _servico.ObterTodos();
             List<ContaCorrenteDTO> contasDTO = _mapper.Map<List<ContaCorrente>,List<ContaCorrenteDTO>>(contas);

@@ -18,32 +18,32 @@ namespace Alura.ByteBank.Dominio.Services
         }
         public bool Adicionar(ContaCorrente conta)
         {
-           return _repositorio.Adicionar(conta);
+           return _repositorio.Insert(conta);
         }
 
         public bool Atualizar(int id, ContaCorrente conta)
         {
-            return _repositorio.Atualizar(id, conta);
+            return _repositorio.Update(id, conta);
         }
 
         public bool Excluir(int id)
         {
-            return _repositorio.Excluir(id);
+            return _repositorio.Remove(id);
         }
 
         public ContaCorrente ObterPorId(int id)
         {
-            return _repositorio.ObterPorId(id);
+            return _repositorio.GetById(id);
         }
 
         public ContaCorrente ObterPorGuid(Guid guid)
         {
-            return _repositorio.ObterPorGuid(guid);
+            return _repositorio.GetByGuid(guid);
         }
 
         public List<ContaCorrente> ObterTodos()
         {
-            return _repositorio.ObterTodos();
+            return _repositorio.RemoveAll();
         }
 
         public void Dispose()

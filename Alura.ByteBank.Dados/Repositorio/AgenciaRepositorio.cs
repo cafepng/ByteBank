@@ -17,7 +17,7 @@ namespace Alura.ByteBank.Dados.Repositorio
         {
             _contexto = new ByteBankContexto();
         }
-        public bool Adicionar(Agencia agencia)
+        public bool Add(Agencia agencia)
         {
             try
             {
@@ -31,7 +31,7 @@ namespace Alura.ByteBank.Dados.Repositorio
             }
         }
 
-        public bool Atualizar(int id, Agencia agencia)
+        public bool Update(int id, Agencia agencia)
         {
             
             try
@@ -49,7 +49,7 @@ namespace Alura.ByteBank.Dados.Repositorio
             }
         }
 
-        public bool Excluir(int id)
+        public bool Remove(int id)
         {
             var agencia = _contexto.Agencias.FirstOrDefault(p => p.Id == id);
 
@@ -59,33 +59,37 @@ namespace Alura.ByteBank.Dados.Repositorio
                 {
                     return false;
                 }
+
                 _contexto.Agencias.Remove(agencia);
                 _contexto.SaveChanges();
+
                 return true;
             }
-            catch{
+            catch
+            {
                 return false;
             }
         }
 
-        public Agencia ObterPorId(int id)
+        public Agencia GetById(int id)
         {
             try
             {
                 var agencia = _contexto.Agencias.FirstOrDefault(p => p.Id == id);
+
                 if(agencia == null)
                 {
-                    return null;
+                    throw new FormatException($"Erro ao obter agência com Id = {id}.");
                 }
                 return agencia;
             }
-            catch
+            catch (FormatException ex)
             {
-               throw new Exception($"Erro ao obter agência com Id = {id}.") ;
+               throw new FormatException($"Erro ao obter agência => {ex.Message}") ;
             }
         }
 
-        public Agencia ObterPorGuid(Guid guid)
+        public Agencia GetByGuid(Guid guid)
         {
             try
             {
@@ -102,7 +106,7 @@ namespace Alura.ByteBank.Dados.Repositorio
             }
         }
 
-        public List<Agencia> ObterTodos()
+        public List<Agencia> GetAll()
         {
             try
             {

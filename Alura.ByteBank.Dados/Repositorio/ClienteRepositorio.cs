@@ -17,7 +17,7 @@ namespace Alura.ByteBank.Dados.Repositorio
         {
             _contexto = new ByteBankContexto();
         }
-        public bool Adicionar(Cliente cliente)
+        public bool Add(Cliente cliente)
         {
             try
             {
@@ -31,7 +31,7 @@ namespace Alura.ByteBank.Dados.Repositorio
             }
         }
 
-        public bool Atualizar(int id,Cliente cliente)
+        public bool Update(int id,Cliente cliente)
         {
             
             try
@@ -49,7 +49,7 @@ namespace Alura.ByteBank.Dados.Repositorio
             }
         }
 
-        public bool Excluir(int id)
+        public bool Remove(int id)
         {
             var cliente = _contexto.Clientes.FirstOrDefault(p => p.Id == id);
 
@@ -68,7 +68,7 @@ namespace Alura.ByteBank.Dados.Repositorio
             }
         }
 
-        public Cliente ObterPorId(int id)
+        public Cliente GetById(int id)
         {
             try
             {
@@ -85,7 +85,7 @@ namespace Alura.ByteBank.Dados.Repositorio
             }
         }
 
-        public Cliente ObterPorGuid(Guid guid)
+        public Cliente GetByGuid(Guid guid)
         {
             try
             {
@@ -102,7 +102,7 @@ namespace Alura.ByteBank.Dados.Repositorio
             }
         }
 
-        public List<Cliente> ObterTodos()
+        public List<Cliente> GetAll()
         {
             try
             {

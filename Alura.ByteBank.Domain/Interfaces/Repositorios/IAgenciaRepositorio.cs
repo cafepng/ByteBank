@@ -6,11 +6,11 @@ namespace Alura.ByteBank.Dominio.Interfaces.Repositorios
 {
     public interface IAgenciaRepositorio:IDisposable
     {
-        public List<Agencia> ObterTodos();
-        public Agencia ObterPorId(int id);
-        public Agencia ObterPorGuid(Guid guid);
-        public bool Adicionar(Agencia agencia);
-        public bool Atualizar(int id, Agencia agencia);
-        public bool Excluir(int id);
+        public List<Agencia> GetAll();
+        public Agencia GetById(int id);
+        public Agencia GetByGuid(Guid guid);
+        public bool Add(Agencia agencia);
+        public bool Update(int id, Agencia agencia);
+        public bool Remove(int id);
     }
 }

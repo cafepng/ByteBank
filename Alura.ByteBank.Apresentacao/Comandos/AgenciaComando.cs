@@ -26,26 +26,26 @@ namespace Alura.ByteBank.Apresentacao.Comandos
 
         public bool Adicionar(AgenciaDTO agencia)
         {
-            return agenciaServicoApp.Adicionar(agencia);
+            return agenciaServicoApp.Add(agencia);
         }
         public bool Atualizar(int id, AgenciaDTO agencia)
         {
-            return agenciaServicoApp.Atualizar(id,agencia);
+            return agenciaServicoApp.Update(id,agencia);
         }
 
         public bool Excluir(int id)
         {
-            return agenciaServicoApp.Excluir(id);
+            return agenciaServicoApp.Remove(id);
         }
 
         public AgenciaDTO ObterPorId(int id)
         {
-            return agenciaServicoApp.ObterPorId(id);
+            return agenciaServicoApp.GetById(id);
         }
 
         public List<AgenciaDTO> ObterTodos()
         {
-           return agenciaServicoApp.ObterTodos();
+           return agenciaServicoApp.GetAll();
         }
 
     }

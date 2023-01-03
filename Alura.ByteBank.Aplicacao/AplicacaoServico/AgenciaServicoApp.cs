@@ -28,32 +28,32 @@ namespace Alura.ByteBank.Aplicacao.AplicacaoServico
             _servico.Dispose();
             GC.SuppressFinalize(this);
         }
-        public bool Adicionar(AgenciaDTO agencia)
+        public bool Add(AgenciaDTO agencia)
         {
             return _servico.Adicionar(_mapper.Map<AgenciaDTO,Agencia>(agencia));
         }
 
-        public bool Atualizar(int id, AgenciaDTO agencia)
+        public bool Update(int id, AgenciaDTO agencia)
         {
             return _servico.Atualizar(id, _mapper.Map<AgenciaDTO, Agencia>(agencia));
         }
 
-        public bool Excluir(int id)
+        public bool Remove(int id)
         {
             return _servico.Excluir(id);
         }
 
-        public AgenciaDTO ObterPorId(int id)
+        public AgenciaDTO GetById(int id)
         {
             return _mapper.Map<Agencia,AgenciaDTO>(_servico.ObterPorId(id));
         }
 
-        public AgenciaDTO ObterPorGuid(Guid guid)
+        public AgenciaDTO GetByGuid(Guid guid)
         {
             return _mapper.Map<Agencia, AgenciaDTO>(_servico.ObterPorGuid(guid));
         }
 
-        public List<AgenciaDTO> ObterTodos()
+        public List<AgenciaDTO> GetAll()
         {
             var agencias = _servico.ObterTodos();
             List<AgenciaDTO> agenciasDTO = _mapper.Map<List<Agencia>, List<AgenciaDTO>>(agencias);

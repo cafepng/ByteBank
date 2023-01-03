@@ -10,13 +10,13 @@ namespace Alura.ByteBank.Aplicacao.Interfaces
 {
     public interface IClienteServicoApp:IDisposable
     {        
-        public List<ClienteDTO> ObterTodos();
-        public ClienteDTO ObterPorId(int id);
+        public List<ClienteDTO> GetAll();
+        public ClienteDTO GetById(int id);
 
-        public ClienteDTO ObterPorGuid(Guid guid);
-        public bool Adicionar(ClienteDTO cliente);
-        public bool Atualizar(int id, ClienteDTO cliente);
-        public bool Excluir(int id);
+        public ClienteDTO GetByGuid(Guid guid);
+        public bool Add(ClienteDTO cliente);
+        public bool Update(int id, ClienteDTO cliente);
+        public bool Remove(int id);
       
     }
 }

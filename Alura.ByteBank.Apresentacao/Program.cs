@@ -10,7 +10,7 @@ namespace Alura.ByteBank.Apresentacao
         {
             //Console.BackgroundColor = ConsoleColor.DarkGreen;            
             //Console.ForegroundColor = ConsoleColor.Black;
-            
+
             string opcao;
             do
             {
@@ -19,8 +19,8 @@ namespace Alura.ByteBank.Apresentacao
                 Console.WriteLine(MostrarMenu());
                 opcao = LerOpcaoMenu();
                 ProcessarOpcaoMenu(opcao);
-            } while (opcao!="4");
-       }
+            } while (opcao != "4");
+        }
 
         static string LerOpcaoMenu()
         {
@@ -35,7 +35,7 @@ namespace Alura.ByteBank.Apresentacao
             string menu = "   Escolha uma opção:\n\n" +
                             "   1 - Cadastrar Agência\n" +
                             "   2 - Cadastrar Conta Corrente\n" +
-                            "   3 - Listar Contas Correntes\n" +                         
+                            "   3 - Listar Contas Correntes\n" +
                             "   4 - Sair do Programa \n";
             return menu;
         }
@@ -71,18 +71,18 @@ namespace Alura.ByteBank.Apresentacao
         {
             var comando = new ContaCorrenteComando();
             var contas = comando.ObterTodos();
-            if (contas!=null)
+            if (contas != null)
             {
                 foreach (var item in contas)
                 {
-                    Console.WriteLine("\n"+item.ToString());
+                    Console.WriteLine("\n" + item.ToString());
                 }
             }
             else
             {
-               Console.WriteLine("A consulta não retornou dados.");
+                Console.WriteLine("A consulta não retornou dados.");
             }
-            
+
             Console.ReadKey();
         }
 
@@ -99,7 +99,7 @@ namespace Alura.ByteBank.Apresentacao
             Console.WriteLine("\n[CADASTRO DE CONTAS CORRENTES]");
             Console.Write("\nVocê deseja cadastrar um novo cliente? [s - sim ou n - não] ");
             opcao = Console.ReadLine()[0];
-            if (opcao =='s')
+            if (opcao == 's')
             {
                 Console.WriteLine("\n\n[CADASTRO DE CLIENTE]");
                 Console.Write("Nome Cliente: ");
@@ -107,11 +107,11 @@ namespace Alura.ByteBank.Apresentacao
                 Console.Write("Profissão Cliente: ");
                 clienteDTO.Profissao = Console.ReadLine();
                 Console.Write("CPF Cliente: ");
-                clienteDTO.CPF = Console.ReadLine();                
-                if(clienteComando.Adicionar(clienteDTO))
+                clienteDTO.CPF = Console.ReadLine();
+                if (clienteComando.Adicionar(clienteDTO))
                 {
-                  Console.WriteLine("Cliente Cadastrada com sucesso!");
-                  Console.ReadKey();
+                    Console.WriteLine("Cliente Cadastrada com sucesso!");
+                    Console.ReadKey();
                 }
 
                 Console.Clear();
@@ -143,14 +143,14 @@ namespace Alura.ByteBank.Apresentacao
 
             }
 
-            comando.Adicionar(contaDTO);          
+            comando.Adicionar(contaDTO);
             Console.WriteLine(contaDTO.ToString());
             Console.ReadKey();
 
         }
 
         private static void CadastarAgencia()
-        {            
+        {
             var dto = new AgenciaDTO();
             var comando = new AgenciaComando();
             Console.Clear();

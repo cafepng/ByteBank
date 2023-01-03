@@ -26,30 +26,30 @@ namespace Alura.ByteBank.Apresentacao.Comandos
 
         public bool Adicionar(ClienteDTO cliente)
         {
-            return clienteServicoApp.Adicionar(cliente);
+            return clienteServicoApp.Add(cliente);
         }
         public bool Atualizar(int id,ClienteDTO cliente)
         {
-            return clienteServicoApp.Atualizar(id,cliente);
+            return clienteServicoApp.Update(id,cliente);
         }
 
         public bool Excluir(int id)
         {
-            return clienteServicoApp.Excluir(id);
+            return clienteServicoApp.Remove(id);
         }
 
         public ClienteDTO ObterPorId(int id)
         {
-            return clienteServicoApp.ObterPorId(id);
+            return clienteServicoApp.GetById(id);
         }
         public ClienteDTO ObterPorGuid(Guid guid)
         {
-            return clienteServicoApp.ObterPorGuid(guid);
+            return clienteServicoApp.GetByGuid(guid);
         }
 
         public List<ClienteDTO> ObterTodos()
         {
-           return clienteServicoApp.ObterTodos();
+           return clienteServicoApp.GetAll();
         }
 
     }

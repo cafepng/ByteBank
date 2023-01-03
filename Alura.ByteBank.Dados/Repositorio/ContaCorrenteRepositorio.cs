@@ -15,7 +15,7 @@ namespace Alura.ByteBank.Dados.Repositorio
         {
             _contexto = new ByteBankContexto();
         }
-        public bool Adicionar(ContaCorrente conta)
+        public bool Insert(ContaCorrente conta)
         {
             try
             {    //https://docs.microsoft.com/pt-br/ef/core/change-tracking/identity-resolution            
@@ -30,7 +30,7 @@ namespace Alura.ByteBank.Dados.Repositorio
             }
         }
 
-        public bool Atualizar(int id, ContaCorrente conta)
+        public bool Update(int id, ContaCorrente conta)
         {
 
             try
@@ -49,7 +49,7 @@ namespace Alura.ByteBank.Dados.Repositorio
             }
         }
 
-        public bool Excluir(int id)
+        public bool Remove(int id)
         {
             var conta = _contexto.ContaCorrentes.FirstOrDefault(p => p.Id == id);
 
@@ -69,7 +69,7 @@ namespace Alura.ByteBank.Dados.Repositorio
             }
         }
 
-        public ContaCorrente ObterPorId(int id)
+        public ContaCorrente GetById(int id)
         {
             try
             {
@@ -87,7 +87,7 @@ namespace Alura.ByteBank.Dados.Repositorio
             }
         }
 
-        public ContaCorrente ObterPorGuid(Guid guid)
+        public ContaCorrente GetByGuid(Guid guid)
         {
             try
             {
@@ -104,7 +104,7 @@ namespace Alura.ByteBank.Dados.Repositorio
                 throw new Exception($"Erro ao obter conta com Guid = {guid}.");
             }
         }
-        public List<ContaCorrente> ObterTodos()
+        public List<ContaCorrente> RemoveAll()
         {
             try
             {

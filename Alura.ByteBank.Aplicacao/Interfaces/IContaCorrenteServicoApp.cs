@@ -9,11 +9,11 @@ namespace Alura.ByteBank.Aplicacao.Interfaces
 {
     public interface IContaCorrenteServicoApp:IDisposable
     {
-        public List<ContaCorrenteDTO> ObterTodos();
-        public ContaCorrenteDTO ObterPorId(int id);
-        public ContaCorrenteDTO ObterPorGuid(Guid guid);
-        public bool Adicionar(ContaCorrenteDTO cliente);
-        public bool Atualizar(int id, ContaCorrenteDTO cliente);
-        public bool Excluir(int id);
+        public List<ContaCorrenteDTO> GetAll();
+        public ContaCorrenteDTO GetById(int id);
+        public ContaCorrenteDTO GetByGuid(Guid guid);
+        public bool Add(ContaCorrenteDTO cliente);
+        public bool Update(int id, ContaCorrenteDTO cliente);
+        public bool Remove(int id);
     }
 }

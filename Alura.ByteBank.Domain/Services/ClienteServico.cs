@@ -18,32 +18,32 @@ namespace Alura.ByteBank.Dominio.Services
         }
         public bool Adicionar(Cliente cliente)
         {
-           return _repositorio.Adicionar(cliente);
+           return _repositorio.Add(cliente);
         }
 
         public bool Atualizar(int id, Cliente cliente)
         {
-            return _repositorio.Atualizar(id, cliente);
+            return _repositorio.Update(id, cliente);
         }
 
         public bool Excluir(int id)
         {
-            return _repositorio.Excluir(id);
+            return _repositorio.Remove(id);
         }
 
         public Cliente ObterPorId(int id)
         {
-            return _repositorio.ObterPorId(id);
+            return _repositorio.GetById(id);
         }
 
         public Cliente ObterPorGuid(Guid guid)
         {
-            return _repositorio.ObterPorGuid(guid);
+            return _repositorio.GetByGuid(guid);
         }
         
         public List<Cliente> ObterTodos()
         {
-            return _repositorio.ObterTodos();
+            return _repositorio.GetAll();
         }
 
         public void Dispose()

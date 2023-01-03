@@ -6,12 +6,12 @@ namespace Alura.ByteBank.Dominio.Interfaces.Repositorios
 {
     public interface IClienteRepositorio:IDisposable
     {
-        public List<Cliente> ObterTodos();
-        public Cliente ObterPorId(int id);
-        public Cliente ObterPorGuid(Guid guid);
-        public bool Adicionar(Cliente cliente);
-        public bool Atualizar(int id,Cliente cliente);
-        public bool Excluir(int id);
+        public List<Cliente> GetAll();
+        public Cliente GetById(int id);
+        public Cliente GetByGuid(Guid guid);
+        public bool Add(Cliente cliente);
+        public bool Update(int id,Cliente cliente);
+        public bool Remove(int id);
 
     }
 }

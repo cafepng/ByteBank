@@ -26,26 +26,26 @@ namespace Alura.ByteBank.Apresentacao.Comandos
 
         public bool Adicionar(ContaCorrenteDTO conta)
         {
-            return contaCorrenteServicoApp.Adicionar(conta);
+            return contaCorrenteServicoApp.Add(conta);
         }
         public bool Atualizar(int id, ContaCorrenteDTO conta)
         {
-            return contaCorrenteServicoApp.Atualizar(id,conta);
+            return contaCorrenteServicoApp.Update(id,conta);
         }
 
         public bool Excluir(int id)
         {
-            return contaCorrenteServicoApp.Excluir(id);
+            return contaCorrenteServicoApp.Remove(id);
         }
 
         public ContaCorrenteDTO ObterPorId(int id)
         {
-            return contaCorrenteServicoApp.ObterPorId(id);
+            return contaCorrenteServicoApp.GetById(id);
         }
 
         public List<ContaCorrenteDTO> ObterTodos()
         {
-           return contaCorrenteServicoApp.ObterTodos();
+           return contaCorrenteServicoApp.GetAll();
         }
 
     }
