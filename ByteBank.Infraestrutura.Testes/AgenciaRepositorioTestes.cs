@@ -1,26 +1,36 @@
 ﻿using Alura.ByteBank.Dados.Repositorio;
 using Alura.ByteBank.Dominio.Entidades;
 using Alura.ByteBank.Dominio.Interfaces.Repositorios;
+using ByteBank.Infraestrutura.Testes.Service;
 using Microsoft.Extensions.DependencyInjection;
+using Moq;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace ByteBank.Infraestrutura.Testes
 {
     public class AgenciaRepositorioTestes
     {
         private readonly IAgenciaRepositorio _agenciaRepositorio;
+        private readonly IByteBankRepository _byteBankRepository;
+        public ITestOutputHelper SaidaConsoleTest { get; set; }
 
-        public AgenciaRepositorioTestes()
+        public AgenciaRepositorioTestes(ITestOutputHelper _testOutputHelper)
         {
+            SaidaConsoleTest = _testOutputHelper;
+            SaidaConsoleTest.WriteLine("Construtor invocado.");
+
             var service = new ServiceCollection();
             service.AddTransient<IAgenciaRepositorio, AgenciaRepositorio>();
             var provedor = service.BuildServiceProvider();
             _agenciaRepositorio = provedor.GetService<IAgenciaRepositorio>();
+
+            service = new ServiceCollection();
+            service.AddTransient<IByteBankRepository, ByteBankRepository>();
+            provedor = service.BuildServiceProvider();
+            _byteBankRepository = provedor.GetService<IByteBankRepository>();
         }
 
         [Fact]
@@ -55,6 +65,34 @@ namespace ByteBank.Infraestrutura.Testes
             Assert.Throws<FormatException>(
                 () => _agenciaRepositorio.GetById(-1)
             );
+        }
+
+        [Fact]
+        public void TestAddMock()
+        {
+            Agencia agencia = new()
+            {
+                Id = 4,
+                Nome = "Agencia 04",
+                Identificador = Guid.NewGuid(),
+                Endereco = "Endereço 04",
+                Numero = 4
+            };
+
+            var add = _byteBankRepository.AddAgencia(agencia);
+
+            Assert.True( add );
+        }
+
+        [Fact]
+        public void TestGetMock()
+        {
+            var byteBankRepository = new Mock<IByteBankRepository>();
+            var mock = byteBankRepository.Object;
+
+            var lista = mock.GetAgencias();
+
+            byteBankRepository.Verify(b => b.GetAgencias());
         }
     }
 }
